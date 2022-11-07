@@ -1,0 +1,210 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,600;1,500;1,700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+}
+
+:root {
+    --verylightgrayishblue: hsl(240, 78%, 98%);
+    --lightGrayishBlue: hsl(234, 14%, 74%);
+    --GrayishBlue: hsl(233, 13%, 49%);
+    --DarkGrayishBlue: hsl(232, 13%, 33%);
+}
+
+.hero {
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    position: relative;
+    padding-top: 50px;
+}
+
+.bg-top {
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: -2;
+}
+
+.bg-bottom {
+    position: absolute;
+    bottom: 0%;
+    z-index: -100;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 70px;
+}
+
+header > h1 {
+    margin-bottom: 30px;
+    color: var(--GrayishBlue);
+}
+
+.toggle-div {
+    display: flex;
+    width: min(20%, 600px);
+    margin-inline: auto;
+    justify-content: space-between;
+    align-items: center;
+    column-gap: 30px;
+}
+
+.toggle {
+    position: relative;
+    width: min(60px, 100px);
+    border-radius: 30px;
+    height: min(30px, 140px);
+    background: linear-gradient(to right,hsl(236, 72%, 79%), hsl(237, 63%, 64%));
+}
+
+.toggle-p {
+    color: var(--lightGrayishBlue);
+    cursor: pointer;
+}
+.toggle-p:hover {
+    text-decoration: underline;
+}
+
+.key {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 7%;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: white;
+    transition: .5s ease;
+}
+
+.move {
+    left: 7%;
+}
+
+.content {
+    width: fit-content;
+    margin-inline: auto;
+}
+
+.content > div {
+    text-align: center;
+    z-index: 20;
+    display: inline-block;
+    cursor: pointer;
+    border-radius: 10px;
+    animation: slide 2s linear infinite alternate;
+}
+
+.content > div:nth-child(1){
+    animation-delay: 1s;
+}
+
+.content > div:nth-child(3){
+    animation-delay: 2s;
+}
+
+@keyframes slide {
+    to {
+        transform: translateY(10px);
+    }
+}
+
+.one {
+    background-color: white;
+    padding: 20px 20px;
+    box-shadow: 0px 0px 15px 10px rgba(0, 0, 0, 0.096);
+    width: 300px;
+}
+
+h2 {
+    color: var(--DarkGrayishBlue);
+    margin-bottom: 15px;
+    font-size: 18px;
+}
+
+.price {
+    font-size: 70px;
+    color: var(--DarkGrayishBlue);
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.price span {
+    font-size: 40px;
+}
+
+.sub {
+    padding-block: 10px;
+}
+
+.subb {
+    font-size: 14px;
+    color: var(--DarkGrayishBlue);
+}
+
+.hr {
+    margin-bottom: 20px;
+}
+
+.learn {
+    border: 1px solid hsl(234, 14%, 74%);
+    padding-block: 10px;
+    border-radius: 7px;
+}
+
+.learn:hover {
+    cursor: pointer;
+}
+
+.learn p {
+    font-size: 13px;
+    color: hsl(236, 72%, 60%);
+    text-transform: uppercase;
+}
+
+.active {
+    background: linear-gradient(hsl(236, 72%, 79%),hsl(237, 63%, 64%));
+    box-shadow: none;
+    padding-block: 50px;
+}
+
+.active :is(p, h2, span, h1) {
+    color: white;
+}
+.active .learn {
+    border: 1px solid white;
+}
+
+@media (max-width: 1200px){
+    .hero {
+        overflow: scroll;
+        padding-block: 50px;
+    }
+    .toggle-div {
+        width: 80%;
+        column-gap: 30px;
+    }
+    .bg-bottom {
+        display: none;
+    }    
+    .content {
+        width: 90%;
+        margin-inline: auto;
+    }
+    .content > div {
+        display: block;
+        width: 100%;
+        margin-bottom: 25px;
+    }
+    .active {
+        padding: 20px 20px;
+    }
+}
